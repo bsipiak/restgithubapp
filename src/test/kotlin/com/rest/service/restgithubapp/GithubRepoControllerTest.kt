@@ -6,7 +6,6 @@ import com.rest.service.restgithubapp.githubhttp.FetchRepositoryAdapter
 import com.rest.service.restgithubapp.web.dtos.RepositoryResponseBody
 import junit.framework.Assert.assertEquals
 import org.junit.Test
-import org.junit.jupiter.api.TestInstance
 import org.junit.runner.RunWith
 import org.mockito.BDDMockito.given
 import org.springframework.beans.factory.annotation.Autowired
