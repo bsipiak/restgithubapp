@@ -20,7 +20,6 @@ import org.springframework.http.HttpStatus
 import org.springframework.test.context.junit4.SpringRunner
 import java.time.OffsetDateTime
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @RunWith(SpringRunner::class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 internal class GithubRepoControllerTest {
