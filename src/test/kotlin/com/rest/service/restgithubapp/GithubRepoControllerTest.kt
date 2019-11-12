@@ -4,8 +4,10 @@ import com.rest.service.restgithubapp.domain.dtos.Repository
 import com.rest.service.restgithubapp.domain.usecase.RepositoryCommand
 import com.rest.service.restgithubapp.githubhttp.FetchRepositoryAdapter
 import com.rest.service.restgithubapp.web.dtos.RepositoryResponseBody
+import io.mockk.clearMocks
 import junit.framework.Assert.assertEquals
 import org.junit.Test
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.TestInstance
 import org.junit.runner.RunWith
 import org.mockito.BDDMockito.given
@@ -36,6 +38,11 @@ internal class GithubRepoControllerTest {
 
     @MockBean
     lateinit var fetchRepositoryAdapter: FetchRepositoryAdapter
+
+    @BeforeEach
+    fun init() {
+        clearMocks(fetchRepositoryAdapter)
+    }
 
     @Test
     fun `should return result on correct request`() {
