@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class RestgithubappApplication
 
 fun main(args: Array<String>) {
-	runApplication<RestgithubappApplication>(*args)
+    runApplication<RestgithubappApplication>(*args)
 }
