@@ -4,11 +4,8 @@ import com.rest.service.restgithubapp.domain.dtos.Repository
 import com.rest.service.restgithubapp.domain.usecase.RepositoryCommand
 import com.rest.service.restgithubapp.githubhttp.FetchRepositoryAdapter
 import com.rest.service.restgithubapp.web.dtos.RepositoryResponseBody
-import io.mockk.clearMocks
 import junit.framework.Assert.assertEquals
 import org.junit.Test
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.TestInstance
 import org.junit.runner.RunWith
 import org.mockito.BDDMockito.given
 import org.springframework.beans.factory.annotation.Autowired
@@ -22,7 +19,6 @@ import org.springframework.http.HttpStatus
 import org.springframework.test.context.junit4.SpringRunner
 import java.time.OffsetDateTime
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @RunWith(SpringRunner::class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 internal class GithubRepoControllerTest {
@@ -38,11 +34,6 @@ internal class GithubRepoControllerTest {
 
     @MockBean
     lateinit var fetchRepositoryAdapter: FetchRepositoryAdapter
-
-    @BeforeEach
-    fun init() {
-        clearMocks(fetchRepositoryAdapter)
-    }
 
     @Test
     fun `should return result on correct request`() {

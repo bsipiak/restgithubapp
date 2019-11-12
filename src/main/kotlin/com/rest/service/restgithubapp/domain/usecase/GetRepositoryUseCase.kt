@@ -6,7 +6,7 @@ interface GetRepositoryUseCase {
     fun getRepository(repositoryCommand: RepositoryCommand): Repository
 }
 
-data class RepositoryCommand (
+data class RepositoryCommand(
     val repositoryOwner: String,
     val repositoryName: String
 )

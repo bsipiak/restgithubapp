@@ -1,6 +1,5 @@
 package com.rest.service.restgithubapp.githubhttp
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.rest.service.restgithubapp.domain.dtos.Repository
 import com.rest.service.restgithubapp.domain.ports.FetchRepositoryPort
 import com.rest.service.restgithubapp.domain.usecase.RepositoryCommand
