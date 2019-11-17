@@ -5,9 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class FetchRepositoryResponseBody(
-    @get:JsonProperty("full_name") val fullName: String?,
-    @get:JsonProperty("description") val description: String?,
-    @get:JsonProperty("clone_url") val cloneUrl: String?,
-    @get:JsonProperty("stargazers_count") val stars: String?,
-    @get:JsonProperty("created_at") val createdAt: String?
+    val fullName: String,
+    val description: String?,
+    val cloneUrl: String,
+    @JsonProperty("stargazers_count") val stars: String,
+    val createdAt: String
 )

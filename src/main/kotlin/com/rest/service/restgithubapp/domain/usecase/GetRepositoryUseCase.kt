@@ -3,10 +3,10 @@ package com.rest.service.restgithubapp.domain.usecase
 import com.rest.service.restgithubapp.domain.dtos.Repository
 
 interface GetRepositoryUseCase {
-    fun getRepository(repositoryCommand: RepositoryCommand): Repository
+    fun getRepository(repositoryQuery: RepositoryQuery): Repository
 }
 
-data class RepositoryCommand(
+data class RepositoryQuery(
     val repositoryOwner: String,
     val repositoryName: String
 )

@@ -1,7 +1,7 @@
 package com.rest.service.restgithubapp.web
 
 import com.rest.service.restgithubapp.domain.usecase.GetRepositoryUseCase
-import com.rest.service.restgithubapp.domain.usecase.RepositoryCommand
+import com.rest.service.restgithubapp.domain.usecase.RepositoryQuery
 import com.rest.service.restgithubapp.web.dtos.RepositoryResponseBody
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -21,7 +21,7 @@ internal class GithubRepoController(
         @PathVariable("owner", required = true) owner: String,
         @PathVariable("repository-name", required = true) repositoryName: String
     ): RepositoryResponseBody {
-        val repositoryInfo = RepositoryCommand(owner, repositoryName)
+        val repositoryInfo = RepositoryQuery(owner, repositoryName)
         val repository = getRepositoryUseCase.getRepository(repositoryInfo)
 
         return repository.toResponseBody()

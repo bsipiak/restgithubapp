@@ -1,7 +1,7 @@
 package com.rest.service.restgithubapp
 
 import com.rest.service.restgithubapp.domain.dtos.Repository
-import com.rest.service.restgithubapp.domain.usecase.RepositoryCommand
+import com.rest.service.restgithubapp.domain.usecase.RepositoryQuery
 import com.rest.service.restgithubapp.githubhttp.FetchRepositoryAdapter
 import com.rest.service.restgithubapp.web.dtos.RepositoryResponseBody
 import junit.framework.Assert.assertEquals
@@ -41,7 +41,7 @@ internal class GithubRepoControllerTest {
         val headers = HttpHeaders()
         headers.set("Accept", VALID_CONTENT_TYPE)
         val entity = HttpEntity<String>(headers)
-        val repositoryCommand = RepositoryCommand(REPO_OWNER, REPO_NAME)
+        val repositoryCommand = RepositoryQuery(REPO_OWNER, REPO_NAME)
         given(fetchRepositoryAdapter.fetchRepository(repositoryCommand)).willReturn(githubData());
 
         // when
@@ -79,7 +79,7 @@ internal class GithubRepoControllerTest {
         val entity = HttpEntity<String>(headers)
         val repositoryOwner = ""
         val repositoryName = ""
-        val repositoryCommand = RepositoryCommand(repositoryOwner, repositoryName)
+        val repositoryCommand = RepositoryQuery(repositoryOwner, repositoryName)
         given(fetchRepositoryAdapter.fetchRepository(repositoryCommand)).willReturn(githubData());
 
         // when

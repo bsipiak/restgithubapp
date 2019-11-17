@@ -4,11 +4,11 @@ import com.rest.service.restgithubapp.web.dtos.RepositoryResponseBody
 import java.time.OffsetDateTime
 
 data class Repository(
-    val fullName: String?,
+    val fullName: String,
     val description: String?,
-    val cloneUrl: String?,
-    val stars: Int?,
-    val createdAt: OffsetDateTime?
+    val cloneUrl: String,
+    val stars: Int,
+    val createdAt: OffsetDateTime
 ) {
     fun toResponseBody(): RepositoryResponseBody {
         return RepositoryResponseBody(
