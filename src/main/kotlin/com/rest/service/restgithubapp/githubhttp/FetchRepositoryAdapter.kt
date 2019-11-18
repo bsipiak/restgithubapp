@@ -23,7 +23,6 @@ internal class FetchRepositoryAdapter(
         val url = buildUrl(repositoryQuery)
         val responseString = restTemplate.getForObject(url, String::class.java)
 
-        objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
         val result = objectMapper.readValue(responseString, FetchRepositoryResponseBody::class.java)
 
         return Repository(

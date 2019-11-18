@@ -4,8 +4,10 @@ import com.rest.service.restgithubapp.domain.dtos.Repository
 import com.rest.service.restgithubapp.domain.usecase.RepositoryQuery
 import com.rest.service.restgithubapp.githubhttp.FetchRepositoryAdapter
 import com.rest.service.restgithubapp.web.dtos.RepositoryResponseBody
+import io.mockk.clearMocks
 import junit.framework.Assert.assertEquals
 import org.junit.Test
+import org.junit.jupiter.api.BeforeEach
 import org.junit.runner.RunWith
 import org.mockito.BDDMockito.given
 import org.springframework.beans.factory.annotation.Autowired
@@ -35,8 +37,13 @@ internal class GithubRepoControllerTest {
     @MockBean
     lateinit var fetchRepositoryAdapter: FetchRepositoryAdapter
 
+    @BeforeEach
+    fun init() {
+        clearMocks(fetchRepositoryAdapter)
+    }
+
     @Test
-    fun `should return result on correct request`() {
+    fun `should return result on correct request with mocked GitHub`() {
         // given
         val headers = HttpHeaders()
         headers.set("Accept", VALID_CONTENT_TYPE)
@@ -65,7 +72,7 @@ internal class GithubRepoControllerTest {
         val entity = HttpEntity<String>(headers)
 
         // when
-        val result = testRestTemplate.exchange(API_PATH, HttpMethod.GET, entity, RepositoryResponseBody::class.java)
+        val result = testRestTemplate.exchange(API_PATH, HttpMethod.GET, entity, String::class.java)
 
         // then
         assertEquals(HttpStatus.NOT_ACCEPTABLE, result.statusCode)
@@ -79,15 +86,13 @@ internal class GithubRepoControllerTest {
         val entity = HttpEntity<String>(headers)
         val repositoryOwner = ""
         val repositoryName = ""
-        val repositoryCommand = RepositoryQuery(repositoryOwner, repositoryName)
-        given(fetchRepositoryAdapter.fetchRepository(repositoryCommand)).willReturn(githubData());
 
         // when
         val result = testRestTemplate.exchange(
             "/repositories/$repositoryOwner/$repositoryName/",
             HttpMethod.GET,
             entity,
-            RepositoryResponseBody::class.java
+            String::class.java
         )
 
         // then
