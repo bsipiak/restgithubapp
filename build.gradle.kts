@@ -34,6 +34,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("com.squareup.okhttp3:okhttp:3.8.1")
+    implementation("org.apache.httpcomponents:httpclient")
 
     testImplementation("com.ninja-squad:springmockk:1.1.2")
     testImplementation("io.rest-assured:rest-assured:4.1.2")
