@@ -13,9 +13,9 @@ import org.springframework.web.client.RestTemplate
 @Configuration
 internal class ClientHttpConfig() {
     companion object {
-        const val REQUEST_TIMEOUT = 30000
-        const val CONNECTION_TIMEOUT = 30000
-        const val SOCKET_TIMEOUT = 30000
+        const val REQUEST_TIMEOUT = 500
+        const val CONNECTION_TIMEOUT = 500
+        const val SOCKET_TIMEOUT = 1000
         const val MAX_CONNECTIONS = 50
     }
 
